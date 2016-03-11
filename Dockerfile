@@ -4,9 +4,8 @@ MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 #================================================
 # Customize sources for apt-get
 #================================================
-RUN  echo "deb http://archive.ubuntu.com/ubuntu vivid main universe" > /etc/apt/sources.list \
-  && echo "deb http://archive.ubuntu.com/ubuntu vivid-updates main universe" >> /etc/apt/sources.list \
-  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  40976EAF437D05B5 3B4FE6ACC0B21F32
+RUN echo "deb http://archive.ubuntu.com/ubuntu vivid main universe" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu vivid-updates main universe" >> /etc/apt/sources.list
 
 #========================
 # Miscellaneous packages
@@ -30,8 +29,8 @@ RUN gem install sass -v 3.3.14
 #==========
 # Selenium
 #==========
-RUN mkdir -p /opt/selenium \
- && wget --no-verbose http://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar -O /opt/selenium/selenium-server-standalone.jar
+RUN mkdir -p /opt/selenium
+RUN wget --no-verbose http://selenium-release.storage.googleapis.com/2.48/selenium-server-standalone-2.48.2.jar -O /opt/selenium/selenium-server-standalone.jar
 
 #===================================
 # Download the latest Chrome driver
@@ -44,6 +43,5 @@ RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip http://chromedriver.stora
  && mv /opt/selenium/chromedriver /opt/selenium/chromedriver-$CHROME_DRIVER_VERSION \
  && chmod 755 /opt/selenium/chromedriver-$CHROME_DRIVER_VERSION \
  && ln -fs /opt/selenium/chromedriver-$CHROME_DRIVER_VERSION /usr/bin/chromedriver
-
 
 EXPOSE 4444
