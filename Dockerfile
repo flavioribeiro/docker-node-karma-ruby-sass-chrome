@@ -6,12 +6,14 @@ MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 #================================================
 RUN echo "deb http://archive.ubuntu.com/ubuntu vivid main universe" > /etc/apt/sources.list
 RUN echo "deb http://archive.ubuntu.com/ubuntu vivid-updates main universe" >> /etc/apt/sources.list
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 40976EAF437D05B5
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32
 
 #========================
 # Miscellaneous packages
 # Includes minimal runtime used for executing non GUI Java programs
 #========================
-RUN apt-get update -y \
+RUN apt-get update -y  --force-yes \
  && apt-get -y --no-install-recommends install \
     ca-certificates \
     openjdk-8-jre-headless \
