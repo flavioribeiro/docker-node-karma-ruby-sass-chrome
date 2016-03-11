@@ -1,5 +1,5 @@
 FROM pimterry/node-karma
-MAINTAINER Tim Perry <pimterry@gmail.com>
+MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 
 #================================================
 # Customize sources for apt-get
