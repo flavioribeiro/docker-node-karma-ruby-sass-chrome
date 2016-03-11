@@ -6,6 +6,7 @@ MAINTAINER Flávio Ribeiro <email@flavioribeiro.com>
 #================================================
 RUN echo "deb http://archive.ubuntu.com/ubuntu vivid main universe" > /etc/apt/sources.list
 RUN echo "deb http://archive.ubuntu.com/ubuntu vivid-updates main universe" >> /etc/apt/sources.list
+RUN gpg --keyserver keyserver.ubuntu.com:80 --recv-keys 94558F59
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 40976EAF437D05B5
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32
 
